@@ -1,4 +1,3 @@
-
 // Vercel serverless function: the SportsAPI secret stays on the server.
 const BASE = "https://api.sportsapi.app/v2";
 
@@ -71,4 +70,5 @@ module.exports = async function handler(req, res) {
     });
   }
 };
+
         
