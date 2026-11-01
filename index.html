@@ -1,135 +1,25 @@
 <!doctype html>
-<html lang="fr">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#101b16">
-<title>BachFoot — Tous les sports</title>
+<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#1264d8"><title>BachFoot — Tous les sports</title>
 <style>
-:root{color-scheme:dark;--bg:#0d1712;--panel:#17271e;--panel2:#20352a;--lime:#b9f45a;--txt:#f5f8f4;--muted:#a8b8ad;--line:#304438}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--txt);font:15px system-ui,-apple-system,Segoe UI,sans-serif}
-header{padding:17px 16px;background:linear-gradient(135deg,#1d3928,#0d1712);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
-.brand{display:flex;align-items:center;gap:12px}.ball{width:44px;height:44px;border-radius:14px;background:var(--lime);color:#142016;display:grid;place-items:center;font-size:25px}
-h1{font-size:24px;margin:0}.tag{font-size:10px;color:var(--lime);letter-spacing:2px;font-weight:800}
-main{max-width:900px;margin:auto;padding:16px 14px 85px}.hero{background:linear-gradient(120deg,#213d2b,#17271e);padding:19px;border-radius:18px;margin-bottom:16px}
-.hero small{color:var(--lime);font-weight:800;letter-spacing:1px}.hero h2{font-size:25px;margin:7px 0}.hero p,.muted{color:var(--muted);line-height:1.5}
-.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}.toolbar button,.filters button{border:1px solid var(--line);border-radius:20px;padding:9px 13px;background:var(--panel2);color:var(--txt);font-size:12px}
-.toolbar button.active,.filters button.active{background:var(--lime);color:#142016;border-color:var(--lime);font-weight:800}
-.sectionhead{display:flex;justify-content:space-between;align-items:center;margin:18px 2px 10px}.sectionhead h3{margin:0;font-size:17px}
-.pill{font-size:10px;color:var(--lime);background:#29412e;padding:5px 8px;border-radius:20px;font-weight:800}
-.sports{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.sport{border:1px solid var(--line);border-radius:13px;background:var(--panel);color:var(--txt);padding:12px 7px;text-align:center;font-weight:650;min-height:74px}
-.sport span{display:block;font-size:23px;margin-bottom:5px}.sport.active{background:var(--lime);color:#142016;border-color:var(--lime)}
-.filters{display:flex;gap:7px;overflow:auto;padding:4px 0 10px}.filters button{white-space:nowrap}
-.match{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:14px;margin:9px 0}
-.matchtop{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:11px;margin-bottom:12px}
-.teams{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:8px}.team:last-child{text-align:right}.team strong{display:block;font-size:14px}.team small{color:var(--muted)}
-.score{font-size:21px;font-weight:850;letter-spacing:1px;white-space:nowrap}.live{color:#ff7777;font-weight:850}
-.state{font-size:11px;color:var(--muted);margin-top:9px}
-.card{padding:15px;background:var(--panel);border:1px solid var(--line);border-radius:14px;margin:9px 0}
-.notice{font-size:12px;color:var(--muted);line-height:1.5;background:#202e26;padding:12px;border-radius:12px;margin-top:15px}
-#message{padding:16px;border:1px solid var(--line);border-radius:14px;background:var(--panel);color:var(--muted);margin:12px 0}
-footer{position:fixed;bottom:0;left:0;right:0;background:#101b16ed;border-top:1px solid var(--line);padding:10px;text-align:center;color:var(--muted);font-size:11px;backdrop-filter:blur(12px)}
-button{cursor:pointer}button:focus-visible{outline:2px solid var(--lime);outline-offset:2px}
-@media(min-width:620px){.sports{grid-template-columns:repeat(5,1fr)}.hero h2{font-size:30px}}
-</style>
-</head>
-<body>
-<header><div class="brand"><div class="ball">🏆</div><div><h1>BachFoot</h1><div class="tag">ALL SPORTS · ONE PLACE</div></div></div></header>
-<main>
-<section class="hero"><small>LE SPORT MONDIAL</small><h2>Tous les sports. Toutes les compétitions.</h2><p>Les scores et événements sportifs issus de données réelles, réunis au même endroit.</p></section>
-<div class="sectionhead"><h3>Choisir un sport</h3><span class="pill" id="sportCount">Chargement…</span></div>
-<div class="sports" id="sports"></div>
-<div class="toolbar">
-<button id="liveBtn" class="active">🔴 En direct</button>
-<button id="todayBtn">📅 Aujourd'hui</button>
-<button id="refreshBtn">↻ Actualiser</button>
-</div>
-<div class="sectionhead"><h3 id="heading">Événements sportifs</h3><span class="pill" id="sportTag">TOUS LES SPORTS</span></div>
-<div class="filters" id="filters"></div>
-<div id="message">Connexion aux données sportives…</div>
-<div id="events"></div>
-<div class="notice"><b>Source des données</b><br>Les événements et scores sont demandés à SportsAPI par un serveur sécurisé. La version gratuite autorise 100 requêtes par jour ; les données en direct sont actualisées à la demande pour respecter ce quota.</div>
-</main>
-<footer>BACHFOOT · Application multisport</footer>
+:root{--b:#1264d8;--ink:#17243a;--muted:#718096;--bg:#f3f6fb;--line:#e4eaf3}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px system-ui}header{background:white;border-bottom:1px solid var(--line);padding:13px 16px;position:sticky;top:0;z-index:5}.top,main{max-width:1000px;margin:auto}.brand{display:flex;align-items:center;gap:10px}.ball{background:linear-gradient(135deg,#2585ff,#0750b5);color:white;border-radius:13px;padding:9px;font-size:23px}h1{font-size:22px;margin:0}.tag{font-size:9px;letter-spacing:2px;color:var(--b);font-weight:900}main{padding:16px 14px 80px}.hero{padding:22px;border-radius:20px;color:white;background:linear-gradient(115deg,#0c4eae,#2384f4)}.hero small{font-weight:900;letter-spacing:2px}.hero h2{margin:7px 0;font-size:27px}.hero p{margin:0;line-height:1.5;font-size:13px}.nav,.toolbar,.filters{display:flex;gap:8px;overflow:auto;margin:14px 0}.nav button,.toolbar button,.filters button{white-space:nowrap;border:1px solid var(--line);background:white;color:#53647c;border-radius:22px;padding:9px 13px;font-weight:750;font-size:12px}.active{background:var(--b)!important;color:white!important;border-color:var(--b)!important}.section{display:flex;justify-content:space-between;align-items:center;margin:18px 2px 10px}.section h3{margin:0;font-size:17px}.muted{font-size:11px;color:var(--muted)}.sports{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.sport{background:white;border:1px solid var(--line);border-radius:13px;padding:11px 4px;text-align:center;font-size:11px;font-weight:750}.sport span{display:block;font-size:22px}.sport.active{background:#eaf3ff!important;color:var(--b)!important;border-color:#8bbdff!important}#message,.match,.notice{background:white;border:1px solid var(--line);border-radius:14px;padding:13px;margin:9px 0;color:var(--muted)}.match{color:var(--ink)}.matchtop,.state{display:flex;justify-content:space-between;gap:8px;color:var(--muted);font-size:10px}.teams{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:7px;margin:13px 0}.team{font-size:13px;font-weight:750}.team:last-child{text-align:right}.score{font-size:19px;font-weight:900}.live{color:#e5484d;font-weight:900}.mini{margin-top:10px;border:1px solid var(--line);background:#f7faff;border-radius:9px;padding:6px 9px;color:#426087;font-size:10px}.notice{font-size:11px;line-height:1.5;background:#eaf1fb}footer{position:fixed;bottom:0;background:#ffffffed;border-top:1px solid var(--line);width:100%;text-align:center;padding:10px;color:var(--muted);font-size:10px}@media(min-width:620px){.sports{grid-template-columns:repeat(5,1fr)}}
+</style></head><body>
+<header><div class="top brand"><div class="ball">🏆</div><div><h1>BachFoot</h1><div class="tag">ALL SPORTS · ONE PLACE</div></div></div></header>
+<main><section class="hero"><small>TOUS LES SPORTS, AU MÊME ENDROIT</small><h2>Vis le sport en direct.</h2><p>Scores, calendriers et compétitions du monde entier.</p></section>
+<div class="nav"><button class="active" id="matchesTab">⚽ Matchs</button><button id="favoritesTab">★ Favoris (<span id="favCount">0</span>)</button></div>
+<div class="section"><h3>Choisir un sport</h3><span class="muted" id="sportCount">Chargement…</span></div><div class="sports" id="sports"></div>
+<div class="toolbar"><button class="active" id="liveBtn">🔴 En direct</button><button id="todayBtn">📅 Aujourd’hui</button><button id="refreshBtn">↻ Actualiser</button><button class="active" id="autoBtn">⟳ Auto 60 s</button></div>
+<div class="section"><h3 id="heading">Événements sportifs</h3><span class="muted" id="sportTag">TOUS LES SPORTS</span></div><div class="filters" id="filters"></div><div id="message">Connexion aux données sportives…</div><div id="events"></div>
+<div class="notice"><b>Données sportives</b><br>Les compositions, statistiques, logos et actualités s’affichent lorsqu’ils sont fournis par une source fiable. BachFoot n’invente pas les informations manquantes.</div></main><footer>BACHFOOT · Application multisport</footer>
 <script>
-const icons={"football":"⚽","basketball":"🏀","tennis":"🎾","rugby":"🏉","cricket":"🏏","volleyball":"🏐","handball":"🤾","baseball":"⚾","ice-hockey":"🏒","american-football":"🏈","mma":"🥊","boxing":"🥊","motorsport":"🏎️","cycling":"🚴","athletics":"🏃","golf":"⛳","badminton":"🏸","table-tennis":"🏓","esports":"🎮","swimming":"🏊"};
-let sports=[],selected="all",mode="live",competition="all",lastItems=[];
-const $=id=>document.getElementById(id);
-function labelStatus(x){return x?.description||x?.shortName||x?.type||"Événement";}
-function scoreValue(x){if(x==null)return "—";if(typeof x==="number"||typeof x==="string")return x;if(x.current!=null)return x.current;if(x.display!=null)return x.display;return "—";}
-function dateLabel(x){if(!x)return "";const d=new Date(x);return isNaN(d)?String(x):d.toLocaleString("fr-FR",{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit",timeZone:"UTC"})+" UTC";}
-function teamName(t){return t?.name||t?.shortName||t?.code||"Participant";}
-function isLive(f){return f?.status?.type==="inprogress"||f?.status?.phase==="inprogress"||f?.status?.description?.toLowerCase().includes("live");}
-function renderSports(){
- const items=[{slug:"all",name:"Tous les sports",kind:"fixtures"},...sports];
- $("sports").innerHTML=items.map(s=>`<button class="sport ${selected===s.slug?"active":""}" data-sport="${s.slug}"><span>${icons[s.slug]||"🏅"}</span>${s.name}</button>`).join("");
- document.querySelectorAll("[data-sport]").forEach(b=>b.onclick=()=>{selected=b.dataset.sport;competition="all";renderSports();loadData();});
- $("sportCount").textContent=sports.length+" sports";
- $("sportTag").textContent=(items.find(s=>s.slug===selected)?.name||"Tous les sports").toUpperCase();
-}
-function renderFilters(items){
- const names=[...new Set(items.map(x=>x.league?.name||x.series?.name||x.competition?.name).filter(Boolean))].sort();
- const opts=["Toutes",...names];
- $("filters").innerHTML=opts.map((n,i)=>`<button class="${(i===0&&competition==="all")||competition===n?"active":""}" data-comp="${i===0?"all":n}">${n}</button>`).join("");
- document.querySelectorAll("[data-comp]").forEach(b=>b.onclick=()=>{competition=b.dataset.comp;renderEvents(lastItems);renderFilters(lastItems);});
-}
-function card(f){
- if(f.sessions && !f.home && !f.away){
-  const session=f.sessions[0]||{};
-  return `<article class="match"><div class="matchtop"><span>${f.series?.name||f.sport||"Sport mécanique"}</span><span>${String(f.status||"").toUpperCase()}</span></div><div><strong>${f.name||"Course"}</strong></div><div class="state">${session.name||session.type||"Session"} · ${dateLabel(session.startTime||f.startDate)}</div></article>`;
- }
- const home=teamName(f.home||f.participants?.[0]),away=teamName(f.away||f.participants?.[1]);
- const league=f.league?.name||f.series?.name||f.competition?.name||f.sport||"Sport";
- const live=isLive(f),status=labelStatus(f.status);
- const hs=scoreValue(f.homeScore),as=scoreValue(f.awayScore);
- const score=(hs==="—"&&as==="—")?"À venir":`${hs} – ${as}`;
- const when=f.startTime||f.startDate||f.date;
- return `<article class="match"><div class="matchtop"><span>${league}</span><span class="${live?"live":""}">${live?"● EN DIRECT":status.toUpperCase()}</span></div><div class="teams"><div class="team"><strong>${home}</strong><small>${f.home?.code||""}</small></div><div class="score">${score}</div><div class="team"><strong>${away}</strong><small>${f.away?.code||""}</small></div></div><div class="state">${dateLabel(when)}${f.clock?.display?" · "+f.clock.display:""}</div></article>`;
-}
-function renderEvents(items){
- lastItems=items;
- const filtered=items.filter(x=>competition==="all"||(x.league?.name||x.series?.name||x.competition?.name)===competition);
- $("events").innerHTML=filtered.length?filtered.map(card).join(""):"";
- $("message").textContent=filtered.length?`${filtered.length} événement(s) trouvé(s).`:"Aucun événement trouvé pour cette sélection. Essaie un autre sport ou la vue Aujourd'hui.";
-}
-async function api(params){
- const q=new URLSearchParams(params);
- const r=await fetch("/api/sports?"+q.toString(),{headers:{"Accept":"application/json"}});
- const j=await r.json();
- if(!r.ok)throw new Error(j.error||"Erreur de connexion à SportsAPI");
- return j.data??j;
-}
-async function loadData(){
- $("message").textContent="Chargement des données réelles…";$("events").innerHTML="";
- $("heading").textContent=mode==="live"?"Événements en direct":"Événements du jour";
- $("liveBtn").classList.toggle("active",mode==="live");$("todayBtn").classList.toggle("active",mode==="today");
- try{
-  let data;
-  if(selected==="all"&&mode==="today"){
-   throw new Error("Choisis un sport pour voir son calendrier du jour. Cela évite de consommer trop de requêtes API.");
-  }
-  if(selected==="all"&&mode==="live"){
-   data=await api({resource:"livescores"});
-  }else{
-   const s=sports.find(x=>x.slug===selected);
-   const kind=s?.kind||"fixtures";
-   if(mode==="live"&&kind==="races") data=await api({resource:"races",sport:selected,date:new Date().toISOString().slice(0,10)});
-   else if(mode==="today"&&kind==="races") data=await api({resource:"races",sport:selected,date:new Date().toISOString().slice(0,10)});
-   else if(mode==="today") data=await api({resource:"fixtures",sport:selected,date:new Date().toISOString().slice(0,10)});
-   else data=await api({resource:"livescores",sport:selected});
-  }
-  renderFilters(data);renderEvents(data);
- }catch(e){$("message").textContent=e.message+" — Vérifie que la clé API est configurée dans Vercel."; }
-}
-async function init(){
- try{sports=await api({resource:"sports"});renderSports();await loadData();}
- catch(e){$("message").textContent=e.message+" — L'application doit être déployée sur Vercel avec SPORTSAPI_KEY configurée.";}
-}
-$("liveBtn").onclick=()=>{mode="live";competition="all";loadData();};
-$("todayBtn").onclick=()=>{mode="today";competition="all";loadData();};
-$("refreshBtn").onclick=()=>loadData();
-init();
-</script>
-</body>
-</html>
+const icons={football:"⚽",basketball:"🏀",tennis:"🎾",rugby:"🏉",cricket:"🏏",volleyball:"🏐",handball:"🤾",baseball:"⚾","ice-hockey":"🏒","american-football":"🏈",mma:"🥊",motorsport:"🏎️",cycling:"🚴",badminton:"🏸","table-tennis":"🏓",esports:"🎮"};
+let sports=[],selected="all",mode="live",competition="all",items=[],favorites=JSON.parse(localStorage.getItem("bachfoot_favs")||"[]"),view="matches",auto=true,timer;
+const $=x=>document.getElementById(x),team=t=>t?.name||t?.shortName||t?.code||"Participant",score=x=>x?.current??x?.display??x??"—",status=f=>f?.status?.description||f?.status?.shortName||f?.status?.type||"Événement",isLive=f=>f?.status?.type==="inprogress"||f?.status?.phase==="inprogress"||String(status(f)).toLowerCase().includes("live");
+async function api(p){let r=await fetch("/api/sports?"+new URLSearchParams(p),{headers:{Accept:"application/json"}}),j;try{j=await r.json()}catch{throw Error("Réponse serveur invalide.")}if(!r.ok)throw Error(j.error||"Erreur serveur "+r.status);return j.data??j}
+function renderSports(){let all=[{slug:"all",name:"Tous les sports"},...sports];$("sports").innerHTML=all.map(s=>`<button class="sport ${selected===s.slug?"active":""}" data-s="${s.slug}"><span>${icons[s.slug]||"🏅"}</span>${s.name}</button>`).join("");document.querySelectorAll("[data-s]").forEach(b=>b.onclick=()=>{selected=b.dataset.s;competition="all";view="matches";renderSports();load()});$("sportCount").textContent=sports.length+" sports";$("sportTag").textContent=(all.find(s=>s.slug===selected)?.name||"Tous les sports").toUpperCase()}
+function renderFilters(){let names=[...new Set(items.map(x=>x.league?.name||x.series?.name||x.competition?.name).filter(Boolean))].sort(),opts=["Toutes",...names];$("filters").innerHTML=opts.map((n,i)=>`<button class="${(i===0&&competition==="all")||competition===n?"active":""}" data-c="${i? n:"all"}">${n}</button>`).join("");document.querySelectorAll("[data-c]").forEach(b=>b.onclick=()=>{competition=b.dataset.c;renderFilters();render()})}
+function key(f){return String(f.id||f.eventId||`${team(f.home||f.participants?.[0])}-${team(f.away||f.participants?.[1])}-${f.startTime||f.date}`)}
+function render(){let a=items.filter(f=>competition==="all"||(f.league?.name||f.series?.name||f.competition?.name)===competition);if(view==="favorites")a=a.filter(f=>favorites.includes(key(f)));$("events").innerHTML=a.length?a.map(f=>{let h=f.home||f.participants?.[0],v=f.away||f.participants?.[1],hs=score(f.homeScore),as=score(f.awayScore),live=isLive(f);return `<article class="match"><div class="matchtop"><b>🏆 ${f.league?.name||f.series?.name||f.competition?.name||f.sport||"Sport"}</b><span class="${live?"live":""}">${live?"● EN DIRECT":status(f)}</span></div><div class="teams"><div class="team">${team(h)}</div><div class="score">${hs==="—"&&as==="—"?"À venir":hs+" – "+as}</div><div class="team">${team(v)}</div></div><div class="state"><span>${f.startTime||f.startDate||f.date||""}</span><span>${f.clock?.display||""}</span></div><button class="mini" data-f="${key(f)}">${favorites.includes(key(f))?"★ Retirer des favoris":"☆ Ajouter aux favoris"}</button></article>`}).join(""):`<div class="match">${view==="favorites"?"Aucun favori enregistré.":"Aucun événement pour cette sélection."}</div>`;$("favCount").textContent=favorites.length;document.querySelectorAll("[data-f]").forEach(b=>b.onclick=()=>{let k=b.dataset.f;favorites=favorites.includes(k)?favorites.filter(x=>x!==k):[...favorites,k];localStorage.setItem("bachfoot_favs",JSON.stringify(favorites));render()});$("message").textContent=a.length?a.length+" événement(s) affiché(s).":""}
+async function load(){ $("message").textContent="Chargement des données sportives…";$("events").innerHTML="";$("heading").textContent=mode==="live"?"Événements en direct":"Événements du jour";$("liveBtn").classList.toggle("active",mode==="live");$("todayBtn").classList.toggle("active",mode==="today");try{let d;if(selected==="all"&&mode==="today")throw Error("Choisis un sport pour consulter son calendrier du jour.");if(selected==="all")d=await api({resource:"livescores"});else{let s=sports.find(x=>x.slug===selected),kind=s?.kind||"fixtures",p={sport:selected,date:new Date().toISOString().slice(0,10)};d=await api({resource:kind==="races"?"races":mode==="today"?"fixtures":"livescores",...p})}items=Array.isArray(d)?d:d.items||d.events||[];renderFilters();render()}catch(e){$("message").textContent=e.message+" Vérifie /api/sports et SPORTSAPI_KEY dans Vercel."}}
+async function init(){try{let d=await api({resource:"sports"});sports=Array.isArray(d)?d:d.items||d.sports||[];renderSports();load()}catch(e){$("sportCount").textContent="";$("message").textContent=e.message+" Vérifie la variable SPORTSAPI_KEY dans Vercel."}}
+$("liveBtn").onclick=()=>{mode="live";competition="all";load()};$("todayBtn").onclick=()=>{mode="today";competition="all";load()};$("refreshBtn").onclick=load;$("matchesTab").onclick=()=>{view="matches";$("matchesTab").classList.add("active");$("favoritesTab").classList.remove("active");render()};$("favoritesTab").onclick=()=>{view="favorites";$("favoritesTab").classList.add("active");$("matchesTab").classList.remove("active");render()};$("autoBtn").onclick=()=>{auto=!auto;$("autoBtn").classList.toggle("active",auto);$("autoBtn").textContent=auto?"⟳ Auto 60 s":"⏸ Auto désactivé";setup()};function setup(){clearInterval(timer);if(auto)timer=setInterval(()=>{if(document.visibilityState==="visible")load()},60000)}setup();init();
+</script></body></html>
